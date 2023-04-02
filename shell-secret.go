@@ -12,6 +12,7 @@ import (
 	"io/ioutil"
 	"os"
 	"path"
+	"sort"
 
 	"github.com/mitchellh/mapstructure"
 	"golang.org/x/crypto/pbkdf2"
@@ -149,5 +150,6 @@ func (s *shellSecret) List() ([]string, error) {
 	for key := range m {
 		keys = append(keys, key)
 	}
+	sort.Strings(keys)
 	return keys, nil
 }

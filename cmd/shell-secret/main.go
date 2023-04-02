@@ -24,6 +24,7 @@ func main() {
 					if cmd.Name() == "setup" {
 						return nil
 					}
+					fmt.Printf("The environment isn't correctly setup. In order to fix this run the following command:\n")
 					if runtime.GOOS == "windows" {
 						return fmt.Errorf(`run '%s setup'`, os.Args[0])
 					}
