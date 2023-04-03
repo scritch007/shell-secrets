@@ -19,12 +19,14 @@ import (
 )
 
 var (
-	envKey         = "SECURE_SHELL_KEY"
+	envKey = "SECURE_SHELL_KEY"
+	// ErrEnvNotSetup will be raised when environment hasn't been setup correctly.
 	ErrEnvNotSetup = fmt.Errorf("environment not setup")
 
 	pbkdf2Password = []byte("shell-secret")
 )
 
+// ShellSecret interface to interact with the ShellSecret.
 type ShellSecret interface {
 	Add(key string, value interface{}) error
 	Delete(key string) error
@@ -32,6 +34,7 @@ type ShellSecret interface {
 	List() ([]string, error)
 }
 
+// Setup will generate private key and print how to setup.
 func Setup() error {
 	keyBytes := make([]byte, 32)
 	_, err := rand.Read(keyBytes)
@@ -43,6 +46,7 @@ func Setup() error {
 	return nil
 }
 
+// New will instantiate the default implementation of ShellSecret.
 func New() (ShellSecret, error) {
 	key := os.Getenv(envKey)
 	if key == "" {
