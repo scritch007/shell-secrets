@@ -1,0 +1,23 @@
+linters:
+  enable:
+    - revive
+    - gosec
+    - gofmt
+    - godot
+issues:
+  # Maximum issues count per one linter.
+  # Set to 0 to disable.
+  # Default: 50
+  max-issues-per-linter: 0
+  # Maximum count of issues with the same text.
+  # Set to 0 to disable.
+  # Default: 3
+  max-same-issues: 0
+  include:
+    - EXC0012
+    - EXC0013
+    - EXC0014
+    - EXC0015
+linter-settings:
+  revive:
+    enable-all-rules: true
