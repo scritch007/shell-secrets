@@ -8,5 +8,5 @@ for CMD.exe
 set %s=%s
 
 for PowerShell
-$env:%s = '%s'`, envKey, key)
+$env:%s = '%s'`, envKey, key, envKey, key)
 }
