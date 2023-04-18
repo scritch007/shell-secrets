@@ -120,7 +120,6 @@ func (s *shellSecret) Add(key string, value interface{}) error {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("map %v\n", m)
 	m[key] = value
 	return s.save(m)
 }
