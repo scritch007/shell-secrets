@@ -39,6 +39,7 @@ func main() {
 	rootCmd.AddCommand(addCmd)
 	rootCmd.AddCommand(deleteCmd)
 	rootCmd.AddCommand(setupCmd)
+	rootCmd.AddCommand(listCmd)
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Printf("%s\n", err.Error())
 		os.Exit(1)
