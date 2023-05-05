@@ -24,6 +24,21 @@ var (
 	ErrEnvNotSetup = fmt.Errorf("environment not setup")
 
 	pbkdf2Password = []byte("shell-secret")
+
+	// ShellCmd variable
+	ShellCmd ShellCmdType
+)
+
+// ShellCmdType type to describe the shell
+type ShellCmdType string
+
+const (
+	// PowerShell command
+	PowerShell ShellCmdType = "powershell"
+	// Cmd windows cmd.exe
+	Cmd ShellCmdType = "cmdWindows"
+	// LinuxShell linux shell
+	LinuxShell ShellCmdType = "linuxShell"
 )
 
 // ShellSecret interface to interact with the ShellSecret.
@@ -43,6 +58,7 @@ func Setup() error {
 	}
 	key := base64.RawStdEncoding.EncodeToString(keyBytes)
 	printEnv(key)
+
 	return nil
 }
 
