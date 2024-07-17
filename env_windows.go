@@ -29,7 +29,7 @@ func init() {
 		fmt.Printf("failed to find parent process")
 	}
 	switch process.Executable() {
-	case "powershell.exe":
+	case "powershell.exe", "pwsh.exe":
 		ShellCmd = PowerShell
 	case "cmd.exe":
 		ShellCmd = Cmd
